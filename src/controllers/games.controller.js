@@ -13,6 +13,16 @@ const findGameByIdController = (req, res) => {
 
 const createGameController = (req, res) => {
     const game = req.body;
+
+    if ( 
+      !game ||
+      !game.titulo ||
+      !game.empresa ||
+      !game.ano) 
+      {
+        return res.status(400).send({ mensagem: "Você naõ preencheu todos os dados para adicionar um novo game!" });
+    }
+
     const newGame = gamesService.createGameService(game);
     res.send(newGame);
   };
