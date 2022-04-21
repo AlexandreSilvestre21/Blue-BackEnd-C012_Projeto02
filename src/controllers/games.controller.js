@@ -1,7 +1,7 @@
 const gamesService = require('../services/games.service');
 
-const findGamesController = (req, res) => {
-  const allGames = gamesService.findGamesService();
+const findGamesController = async (req, res) => {
+  const allGames = await gamesService.findGamesService();
   res.send(allGames);
 };
 

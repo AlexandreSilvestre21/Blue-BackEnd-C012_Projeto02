@@ -3,11 +3,11 @@ const cors = require('cors');
 const port = 3000;
 const app = express();
 
-connectToDatabase();
-
 const route = require('./src/routes/games.route');
 
 const connectToDatabase = require('./src/database/database');
+
+connectToDatabase();
 
 app.use(cors());
 app.use(express.json());
