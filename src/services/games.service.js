@@ -6,28 +6,24 @@ const findGamesService = async () => {
   return games;
 };
   
-const findGameByIdService = (id) => {
-    return games.find((game) => game.id == id);
-  };
+const findGameByIdService = async (id) => {
+  const game = await Game.findById(id);
+  return game;
+};
 
-const createGameService = (newGame) => {
-    const newId = games.length + 1;
-    newGame.id = newId;
-    games.push(newGame);
-    return newGame;
-  };  
+const createGameService = async (newGame) => {
+  const gameCriada = await Game.create(newGame)
+  return gameCriada;
+};  
 
-const updateGameService = (id, gameEdited) => {
-    gameEdited['id'] = id;
-    const gameIndex = games.findIndex((game) => game.id == id);
-    games[gameIndex] = gameEdited;
-    return gameEdited;
-  };
+const updateGameService = async (id, gameEdited) => {
+  const gameAtualizada = await Game.findByIdAndUpdate(id, gameEdited);
+  return gameAtualizada;
+};
 
-const deleteGameService = (id) => {
-    const gameIndex = games.findIndex((game) => game.id == id);
-    return games.splice(gameIndex, 1);
-  };
+const deleteGameService = async (id) => {
+  return await Game.findByIdAndDelete(id);
+};
 
 module.exports = {
     findGamesService,

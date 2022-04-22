@@ -1,4 +1,4 @@
-const mongooose = require('mongoose');
+const mongoose = require('mongoose');
 
 const GameSchema = new mongoose.Schema({
     titulo: { type: String, required: true },
