@@ -74,7 +74,7 @@ const updateGameController = async (req, res) => {
     gameEdit,
   );
 
-  res.send(updatedGame);
+  res.send(gameEdit);
 };
 
 const deleteGameController = async (req, res) => {

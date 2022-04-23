@@ -1,11 +1,11 @@
 const route = require('express').Router();
 const controllerGames = require('../controllers/games.controller');
-const { validId, validObjectBody } = require('../middlewares/game.middleware');
 
-route.get('/all-games', controllerGames.findAllGamesController);
-route.get('/one-game/:id', validId, controllerGames.findByIdGameController);
-route.post('/create-game', validObjectBody, controllerGames.createGameController);
-route.put('/update-game/:id',validId, validObjectBody,  controllerGames.updateGameController);
-route.delete('/delete-game/:id', validId, controllerGames.deleteGameController);
+
+route.get('/games', controllerGames.findGamesController);
+route.get('/game/:id', controllerGames.findGameByIdController);
+route.post('/create-game', controllerGames.createGameController);
+route.put('/update-game/:id', controllerGames.updateGameController);
+route.delete('/delete-game/:id', controllerGames.deleteGameController);
 
 module.exports = route;
